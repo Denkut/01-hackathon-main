@@ -8,6 +8,11 @@ export class Module {
     }
     this.type = type
     this.text = text
+
+    this.itemHtml = document.createElement("li");
+		this.itemHtml.className = "menu-item";
+		this.itemHtml.dataset.type = this.type;
+		this.itemHtml.textContent = this.text;
   }
 
   trigger() {
@@ -15,6 +20,15 @@ export class Module {
   }
 
   toHTML() {
-    return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`
+    return this.itemHtml;
+}
+
+  clearBody() {
+    const body = document.body;
+    const ulListItem = document.querySelector("#menu")
+    body.style.backgroundColor = "#fff";
+    while(body.lastElementChild !== ulListItem) {
+      body.removeChild(body.lastElementChild);
+    }
   }
 }
