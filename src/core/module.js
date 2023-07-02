@@ -23,10 +23,9 @@ export class Module {
     return this.itemHtml;
 }
 
-
   clearBody() {
     const body = document.body;
-    const ulListItem = document.getElementById("menu")
+    const ulListItem = document.querySelector("#menu")
     body.style.backgroundColor = "#fff";
     while(body.lastElementChild !== ulListItem) {
       body.removeChild(body.lastElementChild);
